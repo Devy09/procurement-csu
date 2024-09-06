@@ -11,7 +11,6 @@ const ItemTable = ({ items }) => (
           <TableHead>Unit</TableHead>
           <TableHead>Stock No.</TableHead>
           <TableHead>Unit Cost</TableHead>
-          <TableHead>Total Cost</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

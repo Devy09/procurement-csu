@@ -40,30 +40,29 @@ const PurchaseTable = () => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>ID#</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Sending Status</TableHead>
-            <TableHead>Payment</TableHead>
-            <TableHead>Purchaser</TableHead>
+            <TableHead>PR No.</TableHead>
             <TableHead>Department</TableHead>
+            <TableHead>Section</TableHead>
+            <TableHead>Designation</TableHead>
+            <TableHead>Certified by</TableHead>
             <TableHead>Supplier</TableHead>
-            <TableHead>Total</TableHead>
+            <TableHead>Mode</TableHead>
             <TableHead>Date</TableHead>
             <TableHead>Due Date</TableHead>
+            <TableHead>Status</TableHead>
             <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {purchases.map((purchase) => (
             <TableRow key={purchase.id}>
-              <TableCell>{purchase.id}</TableCell>
-              <TableCell>{purchase.status}</TableCell>
-              <TableCell>{purchase.sendingStatus}</TableCell>
-              <TableCell>{purchase.payment}</TableCell>
-              <TableCell>{purchase.purchaser}</TableCell>
+              <TableCell>{purchase.prno}</TableCell>
               <TableCell>{purchase.department}</TableCell>
+              <TableCell>{purchase.section}</TableCell>
+              <TableCell>{purchase.designation}</TableCell>
+              <TableCell>{purchase.certifiedby}</TableCell>
               <TableCell>{purchase.supplier}</TableCell>
-              <TableCell>{purchase.total}</TableCell>
+              <TableCell>{purchase.mode}</TableCell>
               <TableCell>{purchase.date}</TableCell>
               <TableCell>{purchase.dueDate}</TableCell>
               <TableCell>
@@ -73,7 +72,7 @@ const PurchaseTable = () => {
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle>Purchase Order Details</DialogTitle>
+                      <DialogTitle>Purchase Request Details</DialogTitle>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
                       {Object.entries(purchase).map(([key, value]) => (
@@ -91,7 +90,7 @@ const PurchaseTable = () => {
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle>Edit Purchase Order</DialogTitle>
+                      <DialogTitle>Edit Purchase Request</DialogTitle>
                     </DialogHeader>
                     {selectedPurchase && (
                       <div className="grid gap-4 py-4">

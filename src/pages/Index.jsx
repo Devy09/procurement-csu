@@ -12,9 +12,11 @@ import PurchaseOrders from '../components/PurchaseOrders';
 import POReceipts from '../components/POReceipts';
 import Suppliers from '../components/Suppliers';
 import Notifications from '../components/Notifications';
+import PurchaseRequestForm from '../components/PurchaseRequestForm';
 
 const Index = () => {
   const [activeMenu, setActiveMenu] = useState('Dashboard');
+  const [showPurchaseForm, setShowPurchaseForm] = useState(false);
 
   const menuItems = [
     { name: 'Dashboard', icon: HomeIcon },
@@ -24,6 +26,10 @@ const Index = () => {
     { name: 'Suppliers', icon: UsersIcon },
     { name: 'Notifications', icon: Bell },
   ];
+
+  const togglePurchaseForm = () => {
+    setShowPurchaseForm(!showPurchaseForm);
+  };
 
   const renderContent = () => {
     switch (activeMenu) {
@@ -37,10 +43,15 @@ const Index = () => {
               <StatusCard title="Performing" count={153} color="green" />
             </div>
             <div className="flex justify-end mb-8">
-              <Button className="bg-green-500 hover:bg-green-600">
+              <Button className="bg-green-500 hover:bg-green-600" onClick={togglePurchaseForm}>
                 CREATE PURCHASE
               </Button>
             </div>
+            {showPurchaseForm && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <PurchaseRequestForm onClose={togglePurchaseForm} />
+              </div>
+            )}
             <Card className="p-6 mb-8">
               <PurchaseTable />
             </Card>

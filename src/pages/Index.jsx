@@ -49,7 +49,9 @@ const Index = () => {
             </div>
             {showPurchaseForm && (
               <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                <PurchaseRequestForm onClose={togglePurchaseForm} />
+                <div className="bg-white rounded-lg p-6 w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+                  <PurchaseRequestForm onClose={togglePurchaseForm} />
+                </div>
               </div>
             )}
             <Card className="p-6 mb-8">
@@ -81,7 +83,7 @@ const Index = () => {
       {/* Sidebar */}
       <aside className="w-64 bg-white h-screen p-4 shadow-md">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-blue-600">Procutimus</h1>
+          <h1 className="text-2xl font-bold text-blue-600">CSU Procurement</h1>
         </div>
         <nav>
           <ul className="space-y-2">

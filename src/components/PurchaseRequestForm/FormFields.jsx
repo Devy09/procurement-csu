@@ -25,3 +25,10 @@ export const SelectField = ({ label, name, value, onChange, options }) => (
     </Select>
   </div>
 );
+
+export const DateField = ({ label, name, value, onChange }) => (
+  <div className="space-y-2">
+    <Label htmlFor={name}>{label}</Label>
+    <Input id={name} name={name} type="date" value={value} onChange={onChange} />
+  </div>
+);

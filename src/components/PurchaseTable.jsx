@@ -71,7 +71,7 @@ const PurchaseTable = () => {
                   <DialogTrigger asChild>
                     <Button variant="outline" size="sm" className="mr-2">View</Button>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                     <DialogHeader>
                       <DialogTitle>Purchase Order Details</DialogTitle>
                     </DialogHeader>
@@ -89,7 +89,7 @@ const PurchaseTable = () => {
                   <DialogTrigger asChild>
                     <Button variant="outline" size="sm" onClick={() => handleEdit(purchase)}>Edit</Button>
                   </DialogTrigger>
-                  <DialogContent>
+                  <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
                     <DialogHeader>
                       <DialogTitle>Edit Purchase Order</DialogTitle>
                     </DialogHeader>

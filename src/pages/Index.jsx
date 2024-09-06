@@ -43,7 +43,7 @@ const Index = () => {
               <StatusCard title="Performing" count={153} color="green" />
             </div>
             <div className="flex justify-end mb-8">
-              <Button className="bg-green-500 hover:bg-green-600" onClick={togglePurchaseForm}>
+              <Button className="bg-accent hover:bg-accent/90 text-accent-foreground" onClick={togglePurchaseForm}>
                 CREATE PURCHASE
               </Button>
             </div>
@@ -83,7 +83,7 @@ const Index = () => {
       {/* Sidebar */}
       <aside className="w-64 bg-white h-screen p-4 shadow-md">
         <div className="mb-8">
-          <h1 className="text-2xl font-bold text-blue-600">CSU Procurement</h1>
+          <h1 className="text-2xl font-bold text-accent">CSU Procurement</h1>
         </div>
         <nav>
           <ul className="space-y-2">
@@ -92,7 +92,7 @@ const Index = () => {
                 key={item.name}
                 className={`p-2 rounded cursor-pointer transition-colors duration-200 flex items-center ${
                   activeMenu === item.name
-                    ? 'bg-blue-100 text-blue-600'
+                    ? 'bg-accent/10 text-accent'
                     : 'hover:bg-gray-100'
                 }`}
                 onClick={() => setActiveMenu(item.name)}
@@ -122,7 +122,7 @@ const Index = () => {
             </div>
           </div>
           <div className="flex items-center space-x-4">
-            <BellIcon className="h-5 w-5 text-gray-500 cursor-pointer hover:text-blue-600 transition-colors duration-200" />
+            <BellIcon className="h-5 w-5 text-gray-500 cursor-pointer hover:text-accent transition-colors duration-200" />
             <Avatar className="cursor-pointer">
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
               <AvatarFallback>CN</AvatarFallback>

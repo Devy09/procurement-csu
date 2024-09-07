@@ -9,7 +9,6 @@ import PurchaseTable from '../components/PurchaseTable';
 import PurchaseChart from '../components/PurchaseChart';
 import Products from '../components/Products';
 import PurchaseOrders from '../components/PurchaseOrders';
-import POReceipts from '../components/POReceipts';
 import Suppliers from '../components/Suppliers';
 import Notifications from '../components/Notifications';
 import PurchaseRequestForm from '../components/PurchaseRequestForm';
@@ -22,7 +21,6 @@ const Index = () => {
     { name: 'Dashboard', icon: HomeIcon },
     { name: 'Products', icon: PackageIcon },
     { name: 'Purchase Orders', icon: ShoppingCartIcon },
-    { name: 'PO Receipts', icon: TruckIcon },
     { name: 'Suppliers', icon: UsersIcon },
     { name: 'Notifications', icon: Bell },
   ];
@@ -67,8 +65,6 @@ const Index = () => {
         return <Products />;
       case 'Purchase Orders':
         return <PurchaseOrders />;
-      case 'PO Receipts':
-        return <POReceipts />;
       case 'Suppliers':
         return <Suppliers />;
       case 'Notifications':

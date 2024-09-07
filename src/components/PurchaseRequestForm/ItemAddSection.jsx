@@ -10,7 +10,13 @@ const ItemAddSection = ({ onAddItem }) => {
 
   const handleItemChange = (e) => {
     const { name, value } = e.target;
-    setItemData(prevData => ({ ...prevData, [name]: value }));
+    setItemData(prevData => {
+      const newData = { ...prevData, [name]: value };
+      if (name === 'quantity' || name === 'unitCost') {
+        newData.totalCost = (Number(newData.quantity) * Number(newData.unitCost)).toFixed(2);
+      }
+      return newData;
+    });
   };
 
   const handleAddItem = () => {
@@ -52,7 +58,7 @@ const ItemAddSection = ({ onAddItem }) => {
           />
           <InputField label="Stock No." name="stockNo" value={itemData.stockNo} onChange={handleItemChange} />
           <InputField label="Unit Cost" name="unitCost" type="number" value={itemData.unitCost} onChange={handleItemChange} />
-          <InputField label="Total Cost" name="totalCost" type="number" value={itemData.totalCost} onChange={handleItemChange} />
+          <InputField label="Total Cost" name="totalCost" type="number" value={itemData.totalCost} onChange={handleItemChange} readOnly />
         </div>
         <Button type="button" onClick={handleAddItem}>Add Item</Button>
       </CardContent>

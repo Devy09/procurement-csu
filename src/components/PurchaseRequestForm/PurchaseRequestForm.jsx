@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { InputField, SelectField, DateField } from './FormFields';
 import ItemTable from './ItemTable';
@@ -18,7 +17,8 @@ const PurchaseRequestForm = ({ onClose }) => {
   };
 
   const handleAddItem = (newItem) => {
-    setItems(prevItems => [...prevItems, newItem]);
+    const totalCost = Number(newItem.quantity) * Number(newItem.unitCost);
+    setItems(prevItems => [...prevItems, { ...newItem, totalCost }]);
   };
 
   const handleSubmit = (e) => {
@@ -70,12 +70,14 @@ const PurchaseRequestForm = ({ onClose }) => {
             <ItemTable items={items} />
           </div>
 
-          <div className="space-y-2">
-            <label htmlFor="purpose" className="block text-sm font-medium text-gray-700">Purpose</label>
-            <Textarea id="purpose" name="purpose" value={formData.purpose} onChange={handleFormChange} className="h-24" />
+          <div className="flex justify-between items-start">
+            <div className="w-1/2 pr-2">
+              <InputField label="Purpose" name="purpose" value={formData.purpose} onChange={handleFormChange} />
+            </div>
+            <div className="w-1/2 pl-2">
+              <InputField label="Total" name="total" type="number" value={formData.total} onChange={handleFormChange} />
+            </div>
           </div>
-
-          <InputField label="Total" name="total" type="number" value={formData.total} onChange={handleFormChange} />
 
           <div className="flex justify-end space-x-2">
             <Button type="button" variant="outline" onClick={onClose}>Cancel</Button>
